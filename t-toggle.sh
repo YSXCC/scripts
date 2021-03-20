@@ -1,7 +1,14 @@
 #!/bin/bash
-result=$(ps ax|grep -v grep|grep trayer)
+result=$(ps ax|grep -v grep|grep stalonetray)
 if [ "$result" == "" ]; then
-	eval "trayer --transparent true --expand false --edge top --align right --widthtype pixel --height 22 --tint 0x88888888 &"
+	eval "stalonetray --geometry 8x1-0+0 --kludges fix_window_pos --grow-gravity NW --icon-gravity NE &"
 else
-	eval "killall trayer"
+	eval "killall stalonetray"
 fi
+
+#result=$(ps ax|grep -v grep|grep tint2)
+#if [ "$result" == "" ]; then
+#	eval "tint2 &"
+#else
+#	eval "killall tint2"
+#fi
